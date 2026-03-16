@@ -236,7 +236,9 @@ function renderPreview(item) {
     player.autoplay = true;
     mediaPreview.appendChild(player);
   } else if (item.type === "pptx" || item.type === "doc") {
-    const fileUrl = encodeURIComponent(`${window.location.origin}${item.src}`);
+    const fileUrl = encodeURIComponent(
+      new URL(item.src, window.location.href).href,
+    );
     const iframe = document.createElement("iframe");
     iframe.src = `https://docs.google.com/gview?url=${fileUrl}&embedded=true`;
     iframe.width = "100%";

@@ -128,8 +128,8 @@ nav {
   width: 100%;
   max-width: 1216px;
   margin-top: 10px;
-  min-height: 462px;
-  height: auto;
+  min-height: 460px;
+  height: 460px;
   overflow: hidden;
   background: #ccc;
   border-radius: 10px;
@@ -143,7 +143,8 @@ nav {
   inset: 0;
   opacity: 0;
   transition: opacity 0.9s ease;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
 }
 
@@ -152,11 +153,15 @@ nav {
 }
 
 .slide-1 {
-  background-image: url("https://static.wixstatic.com/media/7fdc67_05afaed1ba02490ebb4a8decb0077ef1~mv2.jpg/v1/fill/w_1216,h_462,q_90,enc_avif,quality_auto/7fdc67_05afaed1ba02490ebb4a8decb0077ef1~mv2.jpg");
+  background-image: url("./images/stile2.jpg");
 }
 
 .slide-2 {
-  background-image: url("https://static.wixstatic.com/media/95ca9c_a29ec9e5916d4235a644cecb411c570a~mv2.jpg/v1/fill/w_1216,h_462,q_90,enc_avif,quality_auto/95ca9c_a29ec9e5916d4235a644cecb411c570a~mv2.jpg");
+  background-image: url("./images/stile3.jpg");
+}
+
+.slide-3 {
+  background-image: url("./images/stile4.jpg");
 }
 
 .hero-arrow {
