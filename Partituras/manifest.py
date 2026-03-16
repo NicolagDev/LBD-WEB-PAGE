@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 
-def generar_manifest_pptx(directorio='Corario', nombre_json='corario.json'):
+def generar_manifest_pptx(directorio='./Corario', nombre_json='./Corario/corario.json'):
     """Recorre la carpeta Corario y genera corario.json con PDF."""
     carpeta = Path(directorio)
 
@@ -27,16 +27,16 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Generar corario.json desde un directorio PDF')
-    parser.add_argument('-d', '--directorio', default='Corario',
+    parser.add_argument('-d', '--directorio', default='./Corario',
                         help='Directorio donde buscar PDF (por defecto: Corario)')
     args = parser.parse_args()
 
     posibles = [
         Path(args.directorio),
         Path(__file__).parent / args.directorio,
-        Path('/home/nicodev/Documentos/Coding/Web Page LDB/Partituras') / args.directorio,
-        Path('/home/nicodev/Documentos/Coding/Web Page LDB') / args.directorio,
-        Path('/home/nicodev/Documentos/Coding/Web Page LDB/Partituras/Corario'),
+        Path('./Partituras') / args.directorio,
+        Path('.') / args.directorio,
+        Path('./Partituras/Corario'),
     ]
 
     encontrado = None
@@ -49,8 +49,8 @@ if __name__ == '__main__':
         print('Error: no se encontró un directorio válido. Probadas:', ', '.join(str(r) for r in posibles))
     else:
         try:
-            lista = generar_manifest_pptx(encontrado, 'corario.json')
-            print(f'Generado {encontrado / "corario.json"} con {len(lista)} pptx')
+            lista = generar_manifest_pptx(encontrado, './Corario/corario.json')
+            print(f'Generado {encontrado / "./Corario/corario.json"} con {len(lista)} pptx')
             for cancion in lista:
                 print('-', cancion)
         except Exception as e:
