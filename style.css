@@ -129,9 +129,8 @@ nav {
   max-width: 1216px;
   margin-top: 10px;
   min-height: 460px;
-  height: 460px;
+  height: auto;
   overflow: hidden;
-  background: #ccc;
   border-radius: 10px;
   display: flex;
   align-items: center;
