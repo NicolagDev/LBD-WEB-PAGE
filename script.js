@@ -131,10 +131,7 @@ function normalizeSourcePath(entry, folder) {
 
 function goToFile(item) {
   if (!item) return;
-  // Asegura espacios y caracteres especiales en URL
-  const resolvedUrl = new URL(item.src, window.location.href).href;
-  const safeUrl = encodeURI(resolvedUrl);
-  window.open(safeUrl, "_blank", "noopener,noreferrer");
+  window.open(item.src, "_blank", "noopener,noreferrer");
 }
 
 function renderItems(items) {
