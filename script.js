@@ -83,8 +83,8 @@ function getCurrentConfig() {
     audios: {
       label: "Audios LBDS",
       subtitle: "Busca y ordena tus archivos mp3.",
-      manifest: "./Audios/Pistas/audios.json",
-      folder: "./Audios/Pistas/",
+      manifest: "/LBD-WEB-PAGE/Audios/Pistas/audios.json",
+      folder: "/LBD-WEB-PAGE/Audios/Pistas/",
       extensions: [".mp3"],
       type: "audio",
       hideSelector: false,
@@ -92,8 +92,8 @@ function getCurrentConfig() {
     presentaciones: {
       label: "Presentaciones",
       subtitle: "Busca y ordena tus presentaciones en MP4 o PPTX.",
-      manifest: "./Media/Presentaciones/presentaciones.json",
-      folder: "./Media/Presentaciones/",
+      manifest: "/LBD-WEB-PAGE/Media/Presentaciones/presentaciones.json",
+      folder: "/LBD-WEB-PAGE/Media/Presentaciones/",
       extensions: [".mp4", ".pptx"],
       type: "video",
       hideSelector: true,
@@ -101,8 +101,8 @@ function getCurrentConfig() {
     corario: {
       label: "Corario",
       subtitle: "Busca y ordena tus partituras en PDF o DOC(S).",
-      manifest: "./Partituras/Corario/corario.json",
-      folder: "./Partituras/Corario/",
+      manifest: "/LBD-WEB-PAGE/Partituras/Corario/corario.json",
+      folder: "/LBD-WEB-PAGE/Partituras/Corario/",
       extensions: [".pdf", ".doc", ".docx"],
       type: "doc",
       hideSelector: true,
