@@ -129,7 +129,7 @@ nav {
   max-width: 1216px;
   margin-top: 10px;
   min-height: 460px;
-  height: auto;
+  height: 460px;
   overflow: hidden;
   border-radius: 10px;
   display: flex;
