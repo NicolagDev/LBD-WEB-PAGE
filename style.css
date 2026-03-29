@@ -151,15 +151,15 @@ nav {
 }
 
 .slide-1 {
-  background-image: url("/images/stile2.jpg");
+  background-image: url("./images/stile2.jpg");
 }
 
 .slide-2 {
-  background-image: url("/images/stile3.jpg");
+  background-image: url("./images/stile3.jpg");
 }
 
 .slide-3 {
-  background-image: url("/images/stile4.jpg");
+  background-image: url("./images/stile4.jpg");
 }
 
 .hero-arrow {
