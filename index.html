@@ -18,7 +18,10 @@
     <!-- ── ENCABEZADO Y NAVEGACIÓN ── -->
     <header>
       <nav aria-label="Navegación principal">
-        <a href="https://nicolagdev.github.io/LBD-WEB-PAGE/" aria-label="Ir al inicio">
+        <a
+          href="https://nicolagdev.github.io/LBD-WEB-PAGE/"
+          aria-label="Ir al inicio"
+        >
           <img
             src="./images/Logo La Biblia dice Suba color negro.png"
             alt="Logo Iglesia La Biblia Dice Suba"
@@ -32,23 +35,13 @@
         >
           ☰
         </button>
-        <ul class="nav-links" role="list">
-          <li>
-            <a href="./index.html" class="nav-item" aria-current="page"
-              >Inicio </a
-            >
-          </li>
-          <li>
-            <a href="./calendario.html" class="nav-item"
-              >Calendario <span class="arr" aria-hidden="true">▾</span></a
-            >
-          </li>
-          <li>
-            <a href="./oraciones.html" class="nav-item"
-              >Discipulado <span class="arr" aria-hidden="true">▾</span></a
-            >
-          </li>
-        </ul>
+        <section id="navButtons">
+          <a href="./index.html" class="nav-item" aria-current="page"
+            >Inicio
+          </a>
+          <a href="./calendario.html" class="nav-item">Calendario </a>
+          <a href="./oraciones.html" class="nav-item">Discipulado</a>
+        </section>
       </nav>
     </header>
 
@@ -159,162 +152,6 @@
           </a>
         </section>
       </section>
-
-      <!--TODO LO COMENTADO SON BLOQUES QUE MÁS ADELANTE SE PUEDAN LLEGAR A NECESITAR, Y ES MEJOR NO BORRARLOS 😁-->
-
-      <!-- ── IGLESIAS & OBRAS ── -->
-      <!-- <section class="iglesias" aria-labelledby="iglesias-heading">
-        <h2 class="sec-h2" id="iglesias-heading">iglesias &amp; obras LBD</h2>
-        <h3 class="sec-h3">En Colombia y las Naciones</h3>
-        <blockquote class="verse">
-          <p>"Por tanto, id, y haced discípulos a todas las naciones..."</p>
-          <cite>— Mateo 28:19</cite>
-        </blockquote>
-        <a href="https://www.ilbd.org/iglesiasobras" class="btn-dark"
-          >Click Aquí</a
-        >
-      </section>-->
-
-      <!-- Sección "eventos" comentada: se conserva el markup por si se necesita restaurarla -->
-      <!--
-      <section class="eventos" aria-labelledby="eventos-heading">
-        <h2 class="sr-only" id="eventos-heading">Próximos eventos</h2>
-        <ul class="eventos-grid" role="list">
-          <li class="evento">
-            <figure>
-              <img
-                src="https://static.wixstatic.com/media/95ca9c_0c37153ef936448da12d6552e4f3b990~mv2.jpeg/v1/fill/w_556,h_312,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/95ca9c_0c37153ef936448da12d6552e4f3b990~mv2.jpeg"
-                alt="Participantes del Retiro TBU Internacional 2026"
-              />
-            </figure>
-            <div class="evento-body">
-              <h3 class="evento-title">
-                Retiro TBU Internacional 2026 (12-24 años)
-              </h3>
-              <p class="evento-meta">
-                <time datetime="2026-07-03">3</time> al
-                <time datetime="2026-07-06">6 de julio, 2026</time><br />
-                Lugar: Tierra Alta, Chinauta
-              </p>
-              <div class="evento-btns">
-                <a href="https://www.ilbd.org/about-3" class="btn-out"
-                  >Información para abonos</a
-                >
-                <a
-                  href="https://app.ilbd.org:8080/Eventos/form?eve=7"
-                  class="btn-dark"
-                  >Registra tu abono</a
-                >
-              </div>
-            </div>
-          </li>
-
-          <li class="evento">
-            <figure>
-              <img
-                src="https://static.wixstatic.com/media/95ca9c_261646813dd94f6aa01b2db747dd2836~mv2.jpeg/v1/fill/w_575,h_382,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202026-02-28%20at%202_31_09%20PM.jpeg"
-                alt="Retiro Castillo Fuerte 2026 — Villa de Leyva"
-              />
-            </figure>
-            <div class="evento-body">
-              <h3 class="evento-title">Retiro Castillo Fuerte 2026</h3>
-              <p class="evento-meta">
-                ¿Listo para brillar?<br />
-                <time datetime="2026-07-03">3</time> al
-                <time datetime="2026-07-05">5 de julio, 2026</time><br />
-                Lugar: Hotel Casa Fundadores, Villa de Leyva
-              </p>
-              <div class="evento-btns">
-                <a
-                  href="https://lightoftheworld-cf.lovable.app/"
-                  class="btn-out"
-                  >Más información</a
-                >
-                <a
-                  href="https://app.ilbd.org:8080/Eventos/form?eve=8"
-                  class="btn-dark"
-                  >Registra tu abono</a
-                >
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-      -->
-
-      <!-- Sección "acciones" comentada: se conserva el markup por si se necesita restaurarla -->
-      <!--
-      <section class="acciones" aria-labelledby="acciones-heading">
-        <h2 class="sr-only" id="acciones-heading">Participa</h2>
-        <ul class="acciones-grid" role="list">
-          <li>
-            <a href="https://forms.gle/ZKKDowhXYhbRoLno7" class="accion">
-              <img
-                src="https://static.wixstatic.com/media/nsplsh_7c338fd5cb124f4f96e30ca6c9e9c8c2~mv2.jpg/v1/crop/x_289,y_0,w_4893,h_3648/fill/w_444,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20Patrick%20Fore.jpg"
-                alt="Persona escribiendo — Profesiones de fe"
-              />
-              <span class="accion-label">Profesiones de fe</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://forms.gle/yGHgy7KR2WhUE3Ve9" class="accion">
-              <img
-                src="https://static.wixstatic.com/media/95ca9c_84c89e16867b4965a680c7cdf955acdb~mv2.png/v1/crop/x_33,y_0,w_539,h_402/fill/w_444,h_331,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Bautismo.png"
-                alt="Bautismo en la iglesia"
-              />
-              <span class="accion-label">Bautismo</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.ilbd.org/calendario-1" class="accion">
-              <img
-                src="https://static.wixstatic.com/media/95b25e_b97bdff84c3541299a435668958f2010~mv2.jpg/v1/fill/w_434,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/95b25e_b97bdff84c3541299a435668958f2010~mv2.jpg"
-                alt="Calendario de actividades de la iglesia"
-              />
-              <span class="accion-label">nuestro calendario</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-      -->
-
-      <!-- Sección "ofrendas" comentada: se conserva el markup por si se necesita restaurarla -->
-      <!--
-      <section class="ofrendas" aria-labelledby="ofrendas-heading">
-        <figure class="ofrendas-img">
-          <img
-            src="https://static.wixstatic.com/media/95b25e_bc2c51e85b764770837db67d53f3f2d4~mv2.jpg/v1/fill/w_658,h_439,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/95b25e_bc2c51e85b764770837db67d53f3f2d4~mv2.jpg"
-            alt="Persona con las manos abiertas en actitud de ofrenda"
-          />
-        </figure>
-        <div class="ofrendas-content">
-          <h2 class="ofrendas-title" id="ofrendas-heading">
-            Registra tu ofrenda
-          </h2>
-          <blockquote class="ofrendas-verse">
-            <p>
-              "Y no como lo esperábamos, sino que a sí mismos se dieron
-              primeramente al Señor, y luego a nosotros por la voluntad de
-              Dios;"
-            </p>
-            <cite>2 Corintios 8:5</cite>
-          </blockquote>
-          <div class="ofrendas-btns">
-            <a
-              href="https://www.ilbd.org/copia-de-retiro-jóvenes-2024"
-              class="btn-out"
-              >Información Bancaria</a
-            >
-            <a href="https://app.ilbd.org:8080/Ofrendas/form" class="btn-dark"
-              >Adjunta tu soporte</a
-            >
-          </div>
-        </div>
-      </section>
-      -->
-
       <!-- ── CONTACTO ── -->
       <section class="contacto" aria-labelledby="contacto-heading">
         <h2 class="contacto-title" id="contacto-heading">Contáctanos</h2>
@@ -324,51 +161,6 @@
             <p>Calle 141 # 101b-45, Suba, Bogotá</p>
             <p><a href="tel:+573006055678">(+57) 310 7832515</a></p>
           </address>
-
-          <!--<form class="contacto-form" action="#" method="post" novalidate>
-            <div class="fr">
-              <label for="nombre" class="sr-only">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Nombre"
-                required
-              />
-            </div>
-            <div class="fr">
-              <label for="email" class="sr-only">Correo electrónico</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Correo electrónico"
-                required
-              />
-            </div>
-            <div class="fr">
-              <label for="asunto" class="sr-only">Asunto</label>
-              <input
-                type="text"
-                id="asunto"
-                name="asunto"
-                placeholder="Asunto"
-              />
-            </div>
-            <div class="fr">
-              <label for="mensaje" class="sr-only">Mensaje</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                placeholder="Mensaje..."
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn-send">Enviar</button>
-            <p class="thanks" role="alert" aria-live="polite">
-              ¡Gracias por tu mensaje!
-            </p>
-          </form>-->
         </div>
       </section>
     </main>
