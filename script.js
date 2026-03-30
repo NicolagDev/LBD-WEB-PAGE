@@ -1,16 +1,20 @@
 // Navegación móvil
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!expanded));
     navLinks.classList.toggle("open");
+    navToggle.textContent = !expanded ? "✕" : "☰"; // ← agrega esto
   });
+
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
+      navToggle.textContent = "☰"; // ← agrega esto
     });
   });
 }

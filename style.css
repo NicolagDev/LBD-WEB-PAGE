@@ -485,6 +485,7 @@ button.canciones-btn {
   width: 100%;
 }
 
+/* ── AUDIOS PAGE ── */
 @media (max-width: 768px) {
   .audios-page {
     padding: 28px 16px;
@@ -543,7 +544,19 @@ footer a {
   margin-top: 12px;
 }
 
-/* ── RESPONSIVE ── */
+/* ── NAV TOGGLE (base — oculto por defecto en pantallas grandes) ── */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: inherit;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* ── RESPONSIVE: 768px ── */
 @media (max-width: 768px) {
   nav {
     padding: 0 16px;
@@ -553,12 +566,6 @@ footer a {
     flex-wrap: wrap;
   }
 
-  /* MOBILE: mostrar el toggle */
-  .nav-toggle {
-    display: inline-flex;
-  }
-
-  /* MOBILE: ocultar links por defecto, volver al flujo normal */
   .nav-links {
     display: none;
     position: static;
@@ -572,7 +579,6 @@ footer a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 
-  /* MOBILE: cuando el toggle abre el menú */
   .nav-links.open {
     display: flex;
   }
@@ -585,6 +591,7 @@ footer a {
   .contacto-inner {
     grid-template-columns: 1fr;
   }
+
   .hero {
     height: 240px;
   }
@@ -594,7 +601,7 @@ footer a {
   }
 }
 
-/* Mobile-specific tweaks for small phones */
+/* ── RESPONSIVE: 480px ── */
 @media (max-width: 480px) {
   nav {
     height: 56px;
@@ -604,16 +611,13 @@ footer a {
   .nav-logo {
     height: 40px;
   }
+
   /* TO DO: Revisar la anchura de la imagen del hero para que se adapte mejor a pantallas pequeñas */
   .hero {
-    /* Slightly taller on small phones to avoid aggressive cropping */
     min-height: 260px;
     height: auto;
   }
 
-  /* Prioritize the visible area of the background images on small screens.
-     Shift the focal point slightly up (35%) so faces/subjects are less likely
-     to be cropped when using `background-size: cover`. */
   .hero-slide {
     background-position: 50% 35%;
     background-size: cover;
@@ -707,7 +711,6 @@ footer a {
     gap: 10px;
   }
 
-  /* Make primary buttons full-width on small screens */
   .btn-dark,
   .btn-out,
   .btn-send {
@@ -718,7 +721,6 @@ footer a {
     text-align: center;
   }
 
-  /* ── BOTONES DE CANCIONES (GRANDES, FLECHA A LA DERECHA) ── */
   .canciones-btn {
     display: inline-flex;
     align-items: center;
@@ -726,9 +728,9 @@ footer a {
     background: rgba(0, 0, 0, 0.75);
     color: #fff;
     font-family: var(--font-h);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 14px 20px;
+    padding: 12px 16px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -745,15 +747,14 @@ footer a {
   .canciones-btn .icon {
     display: inline-block;
     margin-left: 6px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
   }
 
-  /* Icon-only variant */
   .canciones-btn.icon-only {
     padding: 12px;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     justify-content: center;
   }
 
@@ -771,25 +772,9 @@ footer a {
     transform: translateY(-1px);
   }
 
-  /* Si el botón está dentro de un enlace que contiene la imagen, asegurar que quede visualmente encima */
   a > .canciones-btn {
     position: relative;
     z-index: 2;
-  }
-
-  /* Ajustes móviles */
-  @media (max-width: 480px) {
-    .canciones-btn {
-      padding: 12px 16px;
-      font-size: 15px;
-    }
-    .canciones-btn .icon {
-      font-size: 16px;
-    }
-    .canciones-btn.icon-only {
-      width: 48px;
-      height: 48px;
-    }
   }
 
   .contacto-inner {
@@ -807,5 +792,46 @@ footer a {
   footer {
     padding: 12px 16px;
     font-size: 11px;
+  }
+}
+
+/* ── RESPONSIVE: 300px — menú hamburguesa ── */
+@media (max-width: 300px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 8px 10px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    margin-top: 8px;
+    background: var(--white);
+    border-top: 1px solid var(--gray-mid);
+    padding-top: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 10px 4px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--gray-mid);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
   }
 }
