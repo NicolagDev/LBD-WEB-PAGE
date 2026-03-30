@@ -1,4 +1,29 @@
-// Navegación móvil
+// ── SLIDER ──────────────────────────────────────────────────────────────────
+const slides = document.querySelectorAll(".hero-slide");
+const dots = document.querySelectorAll(".hero-dot");
+let cur = 0;
+
+if (slides.length && dots.length) {
+  function goTo(i) {
+    slides[cur].classList.remove("active");
+    dots[cur].classList.remove("active");
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add("active");
+    dots[cur].classList.add("active");
+  }
+
+  document
+    .getElementById("next")
+    ?.addEventListener("click", () => goTo(cur + 1));
+  document
+    .getElementById("prev")
+    ?.addEventListener("click", () => goTo(cur - 1));
+  dots.forEach((d) => d.addEventListener("click", () => goTo(+d.dataset.i)));
+
+  setInterval(() => goTo(cur + 1), 10000);
+}
+
+// ── NAVEGACIÓN MÓVIL ─────────────────────────────────────────────────────────
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 
@@ -7,19 +32,19 @@ if (navToggle && navLinks) {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!expanded));
     navLinks.classList.toggle("open");
-    navToggle.textContent = !expanded ? "✕" : "☰"; // ← agrega esto
+    navToggle.textContent = !expanded ? "✕" : "☰";
   });
 
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
-      navToggle.textContent = "☰"; // ← agrega esto
+      navToggle.textContent = "☰";
     });
   });
 }
 
-// Catálogo multimedia
+// ── CATÁLOGO MULTIMEDIA ──────────────────────────────────────────────────────
 const mediaType = document.getElementById("media-type");
 const audioSearch = document.getElementById("audio-search");
 const sortBtn = document.getElementById("sort-btn");
@@ -69,15 +94,9 @@ function insertionSortByFirstAscii(items) {
 
 function getCurrentCategory() {
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has("category")) {
-    return urlParams.get("category");
-  }
-  if (document.body?.dataset?.page) {
-    return document.body.dataset.page;
-  }
-  if (mediaType?.value) {
-    return mediaType.value;
-  }
+  if (urlParams.has("category")) return urlParams.get("category");
+  if (document.body?.dataset?.page) return document.body.dataset.page;
+  if (mediaType?.value) return mediaType.value;
   return "audios";
 }
 
@@ -125,7 +144,6 @@ function normalizeSourcePath(entry, folder) {
   if (!entry) return "";
   try {
     const baseUrl = new URL(folder, window.location.href);
-    // Codifica solo el nombre del archivo, no la URL completa
     const encodedEntry = entry.split("/").map(encodeURIComponent).join("/");
     return new URL(encodedEntry, baseUrl).href;
   } catch (e) {
@@ -140,18 +158,18 @@ function goToFile(item) {
 
 function renderItems(items) {
   if (!audioResults) return;
-
   audioResults.innerHTML = "";
 
   if (!items.length) {
     audioResults.innerHTML =
       "<p>No se encontraron elementos. Verifica el JSON de configuración y los archivos de la carpeta.</p>";
-    audioCount.textContent = "0 elementos encontrados";
+    if (audioCount) audioCount.textContent = "0 elementos encontrados";
     return;
   }
 
   const total = items.length;
-  audioCount.textContent = `${total} elemento${total === 1 ? "" : "s"} encontrados`;
+  if (audioCount)
+    audioCount.textContent = `${total} elemento${total === 1 ? "" : "s"} encontrados`;
 
   items.forEach((item) => {
     const template = document.createElement("article");
@@ -161,24 +179,18 @@ function renderItems(items) {
     title.textContent = item.name;
     template.append(title);
 
-    const resolvedUrl = new URL(item.src, window.location.href).href;
-    const safeUrl = encodeURI(resolvedUrl);
-
     if (item.type === "audio") {
       const audioEl = document.createElement("audio");
       audioEl.controls = true;
       audioEl.src = item.src;
       audioEl.style.width = "100%";
       template.append(audioEl);
-
-      // No botón Abrir aquí para audio, el control integrado permite reproducir aquí
     } else {
       const openButton = document.createElement("button");
       openButton.type = "button";
       openButton.textContent = "Abrir aquí";
       openButton.className = "btn-out";
       openButton.addEventListener("click", () => goToFile(item));
-
       template.append(openButton);
 
       if (item.type === "video") {
@@ -187,13 +199,7 @@ function renderItems(items) {
         videoEl.src = item.src;
         videoEl.width = 480;
         template.append(videoEl);
-      } else if (
-        item.type === "pdf" ||
-        item.type === "pptx" ||
-        item.type === "doc"
-      ) {
-        // Se mantiene solo el botón Abrir aquí, sin link adicional.
-      } else {
+      } else if (!["pdf", "pptx", "doc"].includes(item.type)) {
         const message = document.createElement("p");
         message.textContent =
           "Tipo de archivo no compatible para vista previa.";
@@ -204,12 +210,12 @@ function renderItems(items) {
     audioResults.appendChild(template);
   });
 }
+
 function renderPreview(item) {
   if (!mediaPreview) return;
   mediaPreview.classList.remove("hidden");
   mediaPreview.innerHTML = "";
 
-  // Actualiza la ubicación para permitir enlazar / leer desde la URL.
   window.location.hash = encodeURIComponent(item.src);
 
   const title = document.createElement("h3");
@@ -283,9 +289,10 @@ function applySearch() {
 
 function sortItems() {
   mediaState.sortedAsc = !mediaState.sortedAsc;
-  sortBtn.textContent = mediaState.sortedAsc
-    ? "Ordenar A → Z"
-    : "Ordenar Z → A";
+  if (sortBtn)
+    sortBtn.textContent = mediaState.sortedAsc
+      ? "Ordenar A → Z"
+      : "Ordenar Z → A";
 
   const sorted = insertionSortByFirstAscii(
     mediaState.filtered.length ? mediaState.filtered : mediaState.all,
@@ -346,7 +353,6 @@ async function loadManifest() {
         const folderPath = cleanEntry.includes("/")
           ? cleanEntry.substring(0, cleanEntry.lastIndexOf("/"))
           : "";
-
         return {
           name,
           src,
@@ -361,26 +367,22 @@ async function loadManifest() {
   } catch (err) {
     mediaState.all = [];
     mediaState.filtered = [];
-    audioResults.innerHTML = `<p class='error-msg'>Error leyendo manifest: ${err.message}. Revisa consola y rutas.</p>`;
+    if (audioResults) {
+      audioResults.innerHTML = `<p class='error-msg'>Error leyendo manifest: ${err.message}. Revisa consola y rutas.</p>`;
+    }
     console.error("loadManifest error:", err);
   }
 }
 
-if (mediaType) {
+if (mediaType)
   mediaType.addEventListener("change", () => {
     mediaState.category = mediaType.value;
     mediaState.sortedAsc = true;
     if (sortBtn) sortBtn.textContent = "Ordenar A → Z";
     loadManifest();
   });
-}
 
-if (audioSearch) {
-  audioSearch.addEventListener("input", applySearch);
-}
-
-if (sortBtn) {
-  sortBtn.addEventListener("click", sortItems);
-}
+if (audioSearch) audioSearch.addEventListener("input", applySearch);
+if (sortBtn) sortBtn.addEventListener("click", sortItems);
 
 loadManifest();

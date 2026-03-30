@@ -81,16 +81,13 @@ nav {
 
 .nav-toggle {
   display: none;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--gray-mid);
-  background: var(--white);
-  color: var(--black);
-  border-radius: 7px;
-  font-size: 18px;
+  background: none;
+  border: none;
+  font-size: 22px;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  color: inherit;
+  padding: 4px 8px;
+  line-height: 1;
 }
 
 .nav-item {
@@ -566,12 +563,15 @@ footer a {
     flex-wrap: wrap;
   }
 
-  .nav-links {
+  /* Toggle visible, links ocultos por defecto */
+  .nav-toggle {
+    display: block;
+  }
+
+  #navButtons {
     display: none;
-    position: static;
-    transform: none;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
     gap: 0;
     border-top: 1px solid var(--gray-mid);
     margin-top: 8px;
@@ -579,7 +579,7 @@ footer a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 
-  .nav-links.open {
+  #navButtons.open {
     display: flex;
   }
 
@@ -604,7 +604,8 @@ footer a {
 /* ── RESPONSIVE: 480px ── */
 @media (max-width: 480px) {
   nav {
-    height: 56px;
+    height: auto;
+    min-height: 56px;
     padding: 0 12px;
   }
 
