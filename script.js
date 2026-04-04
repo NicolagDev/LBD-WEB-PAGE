@@ -110,7 +110,7 @@ function getCurrentConfig() {
       folder: "/LBD-WEB-PAGE/Audios/Pistas/",
       extensions: [".mp3"],
       type: "audio",
-      hideSelector: false,
+      hideSelector: true,
     },
     presentaciones: {
       label: "Presentaciones",
